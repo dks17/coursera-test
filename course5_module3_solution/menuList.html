@@ -1,0 +1,10 @@
+<div style="float:left; width: 100%;">
+  <ol>
+    <li ng-repeat="item in ctrl.items">
+      {{item.name}}
+      {{item.short_name}}
+      {{item.description}}
+      <button ng-click="ctrl.onRemove({index: $index})">Remove Item</button>
+    </li>
+  </ol>
+</div>
