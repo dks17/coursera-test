@@ -12,10 +12,10 @@ function FoundItemsDirective(){
       items: '<',
       onRemove: '&'
     },
-    controller: NarrowItDownController,
-    bindToController: true,
-    controllerAs: 'ctrl',
     templateUrl: 'menuList.html'
+    // controller: NarrowItDownController,
+    // bindToController: true,
+    // controllerAs: 'ctrl',
   };
 
   return ddo;
