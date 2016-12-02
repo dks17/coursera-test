@@ -1,0 +1,36 @@
+<fieldset ng-controller="ClientController as ctrl">
+  <h3 class="text-center">Sign Up</h3>
+  <form class="clientform" name="clientInfo" novalidate>
+    <div class="form-group">
+      <label for="firstName">First Name</label>
+      <input ng-model="ctrl.client.firstname" type="text" class="form-control" name="firstName" placeholder="First Name" minlength="2" required>
+      <span ng-if="(clientInfo.firstName.$error.minlength || clientInfo.firstName.$error.required) && clientInfo.firstName.$touched">First Name must be at least 2 characters long</span>
+    </div>
+    <div class="form-group">
+      <label for="lastName">Last Name</label>
+      <input ng-model="ctrl.client.lastname" type="text" class="form-control" name="lastName" placeholder="Last Name" minlength="2" required>
+      <span ng-if="clientInfo.lastName.$error.minlength || clientInfo.lastName.$error.required && clientInfo.lastName.$touched">Last Name must be at least 2 characters long</span>
+    </div>
+    <div class="form-group">
+      <label for="email">Email address</label>
+      <input ng-model="ctrl.client.email" type="email" class="form-control" name="email" placeholder="Email" required>
+      <span ng-if="clientInfo.email.$error.required && clientInfo.email.$touched">Email is required</span>
+    </div>
+    <div class="form-group">
+      <label for="phone">Phone number</label>
+      <input ng-model="ctrl.client.phone" type="tel" class="form-control" name="phone" placeholder="Phone" required>
+      <span ng-if="clientInfo.phone.$error.required && clientInfo.phone.$touched">Phone is required</span>
+    </div>
+
+    <div class="form-group">
+      <label for="fav">What is your favorite dish? </label>
+      <input ng-model="ctrl.client.fav" ng-change="ctrl.favChanging()" type="text" class="form-control" name="fav" placeholder="Menu number of dish" required>
+      <span ng-if="clientInfo.fav.$error.required && clientInfo.fav.$touched">Favorite dish is required</span>
+      <span ng-if="!ctrl.valid && ctrl.completed">No such menu number exists</span>
+    </div>
+
+    <button ng-disabled="(clientInfo.$invalid || !ctrl.valid)" ng-click="ctrl.submit()" type="submit" class="btn btn-default">Submit</button>
+
+    <h4 ng-if="ctrl.saved" class="saved">Your information has been saved</h4>
+  </form>
+</fieldset>

@@ -1,0 +1,15 @@
+.clientform {
+  max-width: 400px;
+  margin: 0 auto;
+}
+.saved {
+  /*color: green;*/
+  background-color: green;
+}
+
+.ng-touched.ng-valid {
+  border: 3px green solid;
+}
+.ng-touched.ng-invalid {
+  border: 3px red solid;
+}
